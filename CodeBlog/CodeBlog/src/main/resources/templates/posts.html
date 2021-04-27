@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>MyCodeBlog</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <header>
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1" style="font-weight: bold;">MyCodeBlog</span>
+        </nav>
+    <a class="btn btn-primary" href="/newpost" role="button" style =" position:absolute;left:1300px;top:20px">NovoPost</a>
+    </header>
+    
+    
+    <section>
+    <div class="container"  style="width: 60%; padding-bottom: 30px;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                <li class="breadcrumb-item active" aria-current="page">Posts</li>
+            </ol>
+        </nav>
+        
+           
+ <div class="card" style="width: 60%;" th:each= "post : ${posts}">
+  <div class="card-body">
+    <h5 class="card-title"  th:text = "${post.titulo}">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted" th:text = "${post.autor}">Card subtitle</h6>
+    <p class="card-text"th:text = "${post.texto}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a th:href= "@{'/Post/' + ${post.id}}" class="card-link">Continuar lendo</a>
+    
+  </div>
+</div>
+</div>
+    </section>
+
+</body>
+</html>
